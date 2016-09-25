@@ -1,0 +1,20 @@
+{
+    "name": "cck/tp-auth",
+    "description": "tp5.0 authentication authorization",
+    "type": "library",
+    "authors": [
+        {
+            "name": "liuzj",
+            "email": "liuzj@whit.ah.cn"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "TpAuth\\Auth\\": "src"
+        }
+    }
+}
