@@ -1,14 +1,8 @@
 <?php
 namespace TpAuth\Auth;
 
-use think\session;
+use think\Session;
 
 class Authentication {
-
-    public function info(){
-        session::set('id',1);
-        dump(session::get('id'));
-    }
-
 
 }
