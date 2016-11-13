@@ -12,6 +12,7 @@ class Authentication implements UserContract
     protected $_config = array(
         'auth_remember_token_cookie' => 'remember_token', //记住登录存储的标示名称
         'auth_remember_token' => 'remember_token', //记住登录字段
+        'auth_remember_token_time'=>3600*24*30,
         'auth_user_sign_name' => 'auth_user_sign_name', //用户登陆后的唯一标示名
         'auth_storage_name' => 'auth_user_info', //缓存用户登录信息的索引名称
         'auth_data_key' => '9.xF%CQ{yz7mq-DXJ=?!lI1^T}+[c]eP:kBDUYHNM"`5', //默认数据加密KEY
@@ -119,7 +120,7 @@ class Authentication implements UserContract
             //更新用户的 remember_token
             $sign = $this->data_sign_auth($user);
             $this->updateRememberToken($user, $sign);
-            cookie($this->_config['auth_remember_token_cookie'], $sign, 3600*24*30);
+            cookie($this->_config['auth_remember_token_cookie'], $sign, $this->_config['auth_remember_token_time']);
             $user[$this->_config['auth_remember_token']] = $sign;
         }
         $this->setAttributes($user);
